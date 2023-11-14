@@ -1,0 +1,12 @@
+<div class="mt-4">
+    <h4 class="mb-3">Página del producto</h4>
+
+    <products-price *ngIf="isProductVisible" [price]="currentPrice"/>
+    
+    <div>
+        <button class="btn btn-primary me-3" (click)="isProductVisible = !isProductVisible">
+            Cambiar visibilidad
+        </button>        
+        <button class="btn btn-primary" (click)="increasePrice()">Precio + 1</button>
+    </div>   
+</div>
