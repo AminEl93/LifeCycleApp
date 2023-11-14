@@ -1,11 +1,22 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+    AfterContentChecked,
+    AfterContentInit,
+    AfterViewChecked,
+    AfterViewInit,
+    Component,
+    DoCheck,
+    OnChanges,
+    OnDestroy,
+    OnInit,
+    SimpleChanges
+} from '@angular/core';
 
 @Component({
     selector: 'products-product-page',
     templateUrl: './product.component.html'
 })
 
-export class ProductComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {
+export class ProductComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy  {
 
     public isProductVisible: boolean = false;
     public currentPrice: number = 10;
@@ -41,6 +52,10 @@ export class ProductComponent implements OnInit, OnChanges, DoCheck, AfterConten
     
     ngAfterViewChecked(): void {
         console.log('ngAfterViewChecked');
+    }
+
+    ngOnDestroy(): void {
+        console.log('ngOnDestroy');
     }
 
     increasePrice() {
